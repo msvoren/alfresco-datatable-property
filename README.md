@@ -13,8 +13,8 @@ It's got read and read/write mode, depending on user privileges and current view
 
 ## Screenshots of view and edit mode
 
-![ScreenShot](https://raw.github.com/msvoren/alfresco-datatable-property/docs/dtp-view.png)
+![ScreenShot](https://raw.github.com/msvoren/alfresco-datatable-property/master/docs/dtp-view.png)
 
-![ScreenShot](https://raw.github.com/msvoren/alfresco-datatable-property/docs/dtp-edit.png)
+![ScreenShot](https://raw.github.com/msvoren/alfresco-datatable-property/master/docs/dtp-edit.png)
 
 
