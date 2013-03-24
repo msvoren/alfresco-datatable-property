@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="mymodel:MyDataModel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+
+	<description>Example data model for datatable property type</description>
+	<author>Matija Svoren</author>
+	<version>1.0</version>
+
+	<imports>
+		<import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d" />
+		<import uri="http://www.alfresco.org/model/content/1.0"	prefix="cm" />
+	</imports>
+
+	<namespaces>
+		<namespace uri="mymodel.model" prefix="mymodel" />
+	</namespaces>
+
+<types>
+
+	<type name="mymodel:IncomingInvoice">
+		<title>Incoming Invoice</title>
+		<parent>cm:content</parent>
+		<properties>
+			<property name="mymodel:ListOfItems">
+				<title>Items</title>
+				<type>d:text</type>
+			</property>
+		</properties>
+		<mandatory-aspects>
+	       		<aspect>cm:versionable</aspect>
+       		</mandatory-aspects>
+	</type>
+
+</types>
+
+</model>

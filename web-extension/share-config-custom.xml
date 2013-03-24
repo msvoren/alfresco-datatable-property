@@ -1,0 +1,39 @@
+<alfresco-config>
+
+  <config evaluator="node-type" condition="mymodel:IncomingInvoice"> 
+        <forms>
+        <form>
+         <field-visibility>
+		<show id="cm:name" />
+		<show id="cm:title" />
+		<show id="cm:description" />
+		<show id="cm:created" />
+		<show id="mymodel:ListOfItems" />
+	</field-visibility>
+
+	<appearance>
+		<field id="cm:name" />
+		<field id="cm:title" />
+		<field id="cm:description" />
+		<field id="cm:created" />
+		<field id="mymodel:ListOfItems"  >
+			<control template="/org/alfresco/form/controls/datatable-property.ftl" >
+				<control-param name="config">
+						id, ID, number;
+						name, Item, text;
+						quantity, Quantity, number;
+						price, Price, currency;
+						paid, Was paid, radio, ["Yes", "No"];
+						features, Features, checkbox, ["JPEG", "MPEG", "MOV"];
+						color, Color, dropdown, ["Black", "White", "Blue"];
+						date, Date, date;
+				</control-param>
+				<control-param name="debug">false</control-param>
+			</control>
+		</field>
+	</appearance>
+      </form>
+      </forms>
+   </config>
+
+</alfresco-config>
