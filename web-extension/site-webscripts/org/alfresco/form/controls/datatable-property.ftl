@@ -68,12 +68,11 @@ DTP = {
 		/* datatable columns are retreived based on table definition */
 		var getMyKeys = function() {
 			var columnsList = [];
-			
-			for each ( c in DTP.columnDefinitions ) {
-				if (c.type == "date") {
-					columnsList.push({key : c.key, parser: "date"});
+			for(var c in DTP.columnDefinitions ) {
+				if (DTP.columnDefinitions[c].type == "date") {
+					columnsList.push({key : DTP.columnDefinitions[c].key, parser: "date"});
 				} else {
-					columnsList.push(c.key);
+					columnsList.push(DTP.columnDefinitions[c].key);
 				}
 			}
 			return columnsList; 
@@ -109,7 +108,8 @@ DTP = {
 			});
 			this.newRowButton.appendChild(addButton);
 			/* add "-" to each delete column */
-		    for each (e in YAHOO.util.Dom.getElementsByClassName('delButton', 'td')) { e.innerHTML = "<div class='yui-dt-liner'>-</div>"; }
+			var elementsByClassName = YAHOO.util.Dom.getElementsByClassName('delButton', 'td');
+		    for (e in elementsByClassName) { elementsByClassName[e].innerHTML = "<div class='yui-dt-liner'>-</div>"; }
 		}
 
 		this.highlightEditableCell = function (oArgs) {
@@ -244,11 +244,12 @@ DTP = {
 			}
 		}
 
-		function DTPtrim(s, toRemove){ for each (t in toRemove) while (s.indexOf(t) != -1) { s = s.replace(t,""); } return YAHOO.lang.trim(s); }
+		function DTPtrim(s, toRemove){ for (var t in toRemove) while (s.indexOf(t) != -1) { s = s.replace(t,""); } return YAHOO.lang.trim(s); }
 
-		for each (c in definition)
-		  if (c[0] && c[0] != "") this.columnDefinitions.push({
-			"key" : c[0], "label" : c[1], "type" : c[2], formatter: getFormatter(c[2]), sortable: true, resizable: true, editor: getEditor(c[2], c[3])
+
+		for (var c in definition)
+		  if (definition[c][0] && definition[c][0] != "") this.columnDefinitions.push({
+			"key" : definition[c][0], "label" : definition[c][1], "type" : definition[c][2], formatter: getFormatter(definition[c][2]), sortable: true, resizable: true, editor: getEditor(definition[c][2], definition[c][3])
 		  });
 
 		if (!this.readOnly) this.columnDefinitions.push({key:"delete", label:" ", className:"delButton"});
