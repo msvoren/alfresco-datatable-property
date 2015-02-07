@@ -244,7 +244,12 @@ DTP = {
 			}
 		}
 
-		function DTPtrim(s, toRemove){ for (var t in toRemove) while (s.indexOf(t) != -1) { s = s.replace(t,""); } return YAHOO.lang.trim(s); }
+		function DTPtrim(s, toRemove){ 
+		for (var t in toRemove)
+		 while (s.indexOf(toRemove[t]) != -1) { 
+		 s = s.replace(toRemove[t],""); } 
+		 return YAHOO.lang.trim(s);
+		  }
 
 
 		for (var c in definition)
