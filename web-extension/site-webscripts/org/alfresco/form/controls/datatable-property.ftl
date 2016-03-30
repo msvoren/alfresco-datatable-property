@@ -37,9 +37,13 @@
 
 
 <script type="text/javascript">//<![CDATA[
-
-window.onload = function(e) { DTP.init("${fieldHtmlId}", "${dtConfig?html}", "${form.mode}", "${field.label?html}"); };
-
+if (window.addEventListener) {
+	window.addEventListener('load', function() { DTP.init("${fieldHtmlId}", "${dtConfig?html}", "${form.mode}", "${field.label?html}"); });
+} else if (window.attachEvent) {
+	window.attachEvent('onload', function() { DTP.init("${fieldHtmlId}", "${dtConfig?html}", "${form.mode}", "${field.label?html}"); });
+} else {
+	window.onload = function(e) { DTP.init("${fieldHtmlId}", "${dtConfig?html}", "${form.mode}", "${field.label?html}"); };
+}
 if (typeof(DTP) == "undefined") { var DTP = {}; }
 
 DTP = {
